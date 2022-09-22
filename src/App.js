@@ -9,8 +9,8 @@ class App extends Component {
       baseURL: 'https://api.edamam.com/api/recipes/v2?type=public',
       query: '&q=',
       queryDetail: '',
-      apikey: `&app_id=${REACT_APP_API_KEY}`,
-      app_key: `&app_key=${REACT_APP_APP_KEY}`,
+      apikey: `&app_id=${process.env.REACT_APP_API_KEY}`,
+      app_key: `&app_key=${process.env.REACT_APP_APP_KEY}`,
      searchURL: '',
      //to do figure out how would we want to set up the 
   }
@@ -40,9 +40,9 @@ this.setState({
 render() {
     return (
       <div>
-        //form for query
+        {/* form for query */}
 <form onSubmit={this.handleSubmit}>
-    <label htmlfor="queryDetail">Recipe</label>
+    <label htmlFor="queryDetail">Recipe</label>
         <input
           id='queryDetail'
           type='text'
