@@ -3,18 +3,16 @@ import './App.css';
 import Recipe from './Component/Recipe'
 
 
-
 class App extends Component {
   constructor(props){
   super(props)
     this.state = {
       //base url  plus additions in order of additions 
-      baseURL: 'https://api.edamam.com/api/recipes/v2?type=public',
-      query: '&q=',
+      baseURL: 'https://www.themealdb.com/api/json/v1/',
+      query: '/search.php?s=',
       queryDetail: '',
-      apikey: `&app_id=${process.env.REACT_APP_API_KEY}`,
-      app_key: `&app_key=${process.env.REACT_APP_APP_KEY}`,
-     searchURL: '',
+      apikey: `${process.env.REACT_APP_API_KEY}`,
+      searchURL: '',
      //to do figure out how would we want to set up the 
   }
   }
@@ -29,7 +27,7 @@ handleSubmit = (event) =>{
   event.preventDefault()
 this.setState({
     //assembles search URL
-    searchURL:this.state.baseURL + this.state.query + this.state.queryDetail + this.state. apikey + this.state.app_key 
+    searchURL:this.state.baseURL + this.state. apikey +  this.state.query + this.state.queryDetail 
 }, () =>{
     //FETCH request stuff 
     fetch(this.state.searchURL)
@@ -37,7 +35,6 @@ this.setState({
           .then(json => this.setState({recipes:json}),
           (err) => console.log(err))
           .then(console.log(this.state.recipes))
-
 })
 
 }
@@ -59,13 +56,14 @@ render() {
             />
 </form>
             <a href={this.state.searchURL}>{this.state.searchURL}</a>
+            
+                      {this.state.recipes&&
 
-{this.state.recipes&&
- 
 
-    this.state.recipes.hits.map((data,i)=><Recipe data={data} key={i}/>
-    )
-}
+
+          this.state.recipes.meals.map((data,i)=><Recipe recipe={data} key={i}/>
+          )
+          }
 </div>
    )
 
