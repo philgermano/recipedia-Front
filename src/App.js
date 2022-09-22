@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
+import Recipe from './Component/Recipe'
+
+
 
 class App extends Component {
   constructor(props){
@@ -31,8 +34,9 @@ this.setState({
     //FETCH request stuff 
     fetch(this.state.searchURL)
           .then(response =>{return response.json()})
-          .then(json => this.setState({recipes:json.data}),
+          .then(json => this.setState({recipes:json}),
           (err) => console.log(err))
+          .then(console.log(this.state.recipes))
 
 })
 
@@ -56,11 +60,15 @@ render() {
 </form>
             <a href={this.state.searchURL}>{this.state.searchURL}</a>
 
-      </div>
+{this.state.recipes&&
+ 
+
+    this.state.recipes.hits.map((data,i)=><Recipe data={data} key={i}/>
     )
-
 }
+</div>
+   )
+
+  }
 }
-
-
 export default App;
