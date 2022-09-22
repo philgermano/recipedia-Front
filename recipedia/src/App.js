@@ -15,15 +15,52 @@ class App extends Component {
      //to do figure out how would we want to set up the 
   }
   }
+//sets this.queryDetail as current search box
+handleChange= (event) =>{
+  this.setState({[event.target.id]: event.target.value})
+}
+
+//assembles search url and detches the results
+handleSubmit = (event) =>{
+  //stops page reload
+  event.preventDefault()
+this.setState({
+    //assembles search URL
+    searchURL:this.state.baseURL + this.state.query + this.state.queryDetail + this.state. apikey + this.state.app_key 
+}, () =>{
+    //FETCH request stuff 
+    fetch(this.state.searchURL)
+          .then(response =>{return response.json()})
+          .then(json => this.setState({recipes:json.data}),
+          (err) => console.log(err))
+
+})
+
+}
 render() {
     return (
       <div>
+        //form for query
+<form onSubmit={this.handleSubmit}>
+    <label htmlfor="queryDetail">Recipe</label>
+        <input
+          id='queryDetail'
+          type='text'
+          value={this.state.queryDetail}
+          onChange={this.handleChange}
+          />
+          <input
+            type='submit'
+            value='Find Recipes'
+            />
 
+</form>
+      
       </div>
     )
 
 }
-
 }
+
 
 export default App;
