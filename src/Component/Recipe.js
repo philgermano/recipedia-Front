@@ -23,7 +23,6 @@ function Recipe (props){
         <h1>{props.recipe.strMeal}</h1>
         <img src={props.recipe.strMealThumb} alt={props.recipe.strMeal}/>
             
-        
             <input onClick={sendBack} type='submit' value='Favorite'/>
                
             </>

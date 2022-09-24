@@ -43,6 +43,7 @@ this.setState({
 render() {
     return (
       <div>
+      
         {/* form for query */}
 <form onSubmit={this.handleSubmit}>
     <label htmlFor="queryDetail">Recipe</label>
@@ -60,7 +61,6 @@ render() {
             <a href={this.state.searchURL}>{this.state.searchURL}</a>
             
                       {this.state.recipes&&
-
 
           this.state.recipes.meals.map((data,i)=>
           <Recipe  recipe={data} key={i}/>
