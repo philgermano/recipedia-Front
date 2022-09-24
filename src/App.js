@@ -35,9 +35,24 @@ this.setState({
           .then(json => this.setState({recipes:json}),
           (err) => console.log(err))
           .then(console.log(this.state.recipes))
+          .then(console.log(this.sendBack))
 })
-
 }
+sendBack = (event) =>{
+  event.preventDefault()
+  fetch('http://localhost:3000/recipes',{
+      method: 'POST',
+      body: JSON.stringify({name: "sending"}),
+      headers: {
+          'Content-Type': 'application/json'
+      }      
+  }).then(res =>res.json())
+  .then(resJson =>{
+      console.log('NewForm - resJson', resJson)
+  })
+}
+
+
 render() {
     return (
       <div>
@@ -61,7 +76,8 @@ render() {
 
 
 
-          this.state.recipes.meals.map((data,i)=><Recipe recipe={data} key={i}/>
+          this.state.recipes.meals.map((data,i)=>
+          <Recipe sendBack={this.sendBack} recipe={data} key={i}/>
           )
           }
 </div>
