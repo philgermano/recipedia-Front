@@ -6,7 +6,7 @@ function Recipe (props){
 
     const sendBack = (event) =>{
         event.preventDefault()
-        fetch('http://recipedia-ga-team1.herokuapp.com/recipes',{
+        fetch('https://recipedia-ga-team1.herokuapp.com/recipes',{
             method: 'POST',
             body: JSON.stringify({
                 name: props.recipe.strMeal,
