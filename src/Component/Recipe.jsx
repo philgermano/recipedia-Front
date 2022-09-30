@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-
+import {useLocation} from 'react-router-dom'
 //This is all old stuff
 
 function Recipe (props){
-
+const state = useLocation();
     // const sendBack = (event) =>{
     //     event.preventDefault()
     //     fetch('https://recipedia-ga-team1.herokuapp.com/recipes',{
@@ -64,13 +64,17 @@ function Recipe (props){
     //   }
 
     return( <>
-        {/* <h1>{props.recipe.strMeal}</h1>
-        <img src={props.recipe.strMealThumb} alt={props.recipe.strMeal}/>
+      <h1>this is a recipe component</h1>
+        <h1>{state.recipe.strMeal}</h1>
+        <img src={state.recipe.strMealThumb} alt={state.recipe.strMeal}/>
             
-            <input onClick={sendBack} type='submit' value='Favorite'/>
-                */}
 
-                <h1>this is a recipe component</h1>
+
+
+            {/* <input onClick={sendBack} type='submit' value='Favorite'/> */}
+               
+
+              
             </>
         
     

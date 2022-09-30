@@ -1,5 +1,5 @@
-import React, {Component, useState, useEffect, useCallback, Link} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, {Component, useState, useEffect, useCallback} from 'react';
+import {useLocation, Link} from 'react-router-dom';
 import Recipe from './Recipe';
 
 function Search (props){
@@ -59,7 +59,11 @@ function Search (props){
          
           <li  recipe={data} key={i} >{data.strMeal}
           <img src={data.strMealThumb}/>
-          {/* <Link to={`/recipe`} className='text-link' >Recipe</Link> */}
+          <Link to={`/recipe`} className='text-link' 
+          state={{
+              recipe: data
+
+          }}>Recipe</Link>
           </li>
         
          
