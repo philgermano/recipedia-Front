@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom'
 //This is all old stuff
 
 function Recipe (props){
+    //imports information passed from search page
 const state = useLocation();
     // const sendBack = (event) =>{
     //     event.preventDefault()
@@ -63,10 +64,16 @@ const state = useLocation();
     //     })
     //   }
 
+
+console.log('state',state)
+console.log('state.recipe',state.state.recipe)
+
     return( <>
       <h1>this is a recipe component</h1>
-        <h1>{state.recipe.strMeal}</h1>
-        <img src={state.recipe.strMealThumb} alt={state.recipe.strMeal}/>
+        <h1>{state.state.recipe.strMeal}</h1>
+        <img src={state.state.recipe.strMealThumb} alt={state.state.recipe.strMeal}/>
+        <p>{state.state.recipe.strInstructions}</p>
+        
             
 
 

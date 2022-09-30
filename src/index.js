@@ -64,8 +64,7 @@ render() {
               apiKey: `${process.env.REACT_APP_API_KEY}`,
               query: this.state.query,
               key: '1'}}>Search</Link>
-              <Link to="/recipe" className='text-link' >Recipe</Link>
-         </nav>
+          </nav>
          <Outlet />
     </div>
   );

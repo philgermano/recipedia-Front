@@ -9,3 +9,8 @@ body {
 .text-link {
   padding: 15px;
 }
+
+
+img{
+  max-width: 250px;
+}
