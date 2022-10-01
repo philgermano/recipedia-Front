@@ -5,64 +5,65 @@ import {useLocation} from 'react-router-dom'
 function Recipe (props){
     //imports information passed from search page
 const state = useLocation();
-    // const sendBack = (event) =>{
-    //     event.preventDefault()
-    //     fetch('https://recipedia-ga-team1.herokuapp.com/recipes',{
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             name: props.recipe.strMeal,
-    //             image: props.recipe.strMealThumb,
-    //             ingredients:[{name: props.recipe.strIngredient1, measure: props.recipe.strMeasure1
-    //             },
-    //             {name: props.recipe.strIngredient2, measure: props.recipe.strMeasure2
-    //             },
-    //             {name: props.recipe.strIngredient3, measure: props.recipe.strMeasure3
-    //             },
-    //             {name: props.recipe.strIngredient4, measure: props.recipe.strMeasure4
-    //             },
-    //             {name: props.recipe.strIngredient5, measure: props.recipe.strMeasure5
-    //             },
-    //             {name: props.recipe.strIngredient6, measure: props.recipe.strMeasure6
-    //             },
-    //             {name: props.recipe.strIngredient7, measure: props.recipe.strMeasure7
-    //             },
-    //             {name: props.recipe.strIngredient8, measure: props.recipe.strMeasure8
-    //             },
-    //             {name: props.recipe.strIngredient9, measure: props.recipe.strMeasure9
-    //             },
-    //             {name: props.recipe.strIngredient10, measure: props.recipe.strMeasure10
-    //             },
-    //             {name: props.recipe.strIngredient11, measure: props.recipe.strMeasure11
-    //             },
-    //             {name: props.recipe.strIngredient12, measure: props.recipe.strMeasure12
-    //             },
-    //             {name: props.recipe.strIngredient13, measure: props.recipe.strMeasure13
-    //             },
-    //             {name: props.recipe.strIngredient14, measure: props.recipe.strMeasure14
-    //             },
-    //             {name: props.recipe.strIngredient15, measure: props.recipe.strMeasure15
-    //             },
-    //             {name: props.recipe.strIngredient16, measure: props.recipe.strMeasure16
-    //             },
-    //             {name: props.recipe.strIngredient17, measure: props.recipe.strMeasure17
-    //             },
-    //             {name: props.recipe.strIngredient18, measure: props.recipe.strMeasure18
-    //             },
-    //             {name: props.recipe.strIngredient19, measure: props.recipe.strMeasure19
-    //             },
-    //             {name: props.recipe.strIngredient20, measure: props.recipe.strMeasure20
-    //             }],
-    //             instructions: props.recipe.strInstructions
-    //         }),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }      
-    //     }).then(res =>res.json())
-    //     .then(resJson =>{
-    //         console.log('NewForm - resJson', resJson)
-    //         console.log(event,"event")
-    //     })
-    //   }
+
+    const sendBack = (event) =>{
+        event.preventDefault()
+        fetch('https://recipedia-ga-team1.herokuapp.com/recipes',{
+            method: 'POST',
+            body: JSON.stringify({
+                name: state.state.recipe.strMeal,
+                image: state.state.recipe.strMealThumb,
+                ingredients:[{name: state.state.recipe.strIngredient1, measure: state.state.recipe.strMeasure1
+                },
+                {name: state.state.recipe.strIngredient2, measure: state.state.recipe.strMeasure2
+                },
+                {name: state.state.recipe.strIngredient3, measure: state.state.recipe.strMeasure3
+                },
+                {name: state.state.recipe.strIngredient4, measure: state.state.recipe.strMeasure4
+                },
+                {name: state.state.recipe.strIngredient5, measure: state.state.recipe.strMeasure5
+                },
+                {name: state.state.recipe.strIngredient6, measure: state.state.recipe.strMeasure6
+                },
+                {name: state.state.recipe.strIngredient7, measure: state.state.recipe.strMeasure7
+                },
+                {name: state.state.recipe.strIngredient8, measure: state.state.recipe.strMeasure8
+                },
+                {name: state.state.recipe.strIngredient9, measure: state.state.recipe.strMeasure9
+                },
+                {name: state.state.recipe.strIngredient10, measure: state.state.recipe.strMeasure10
+                },
+                {name: state.state.recipe.strIngredient11, measure: state.state.recipe.strMeasure11
+                },
+                {name: state.state.recipe.strIngredient12, measure: state.state.recipe.strMeasure12
+                },
+                {name: state.state.recipe.strIngredient13, measure: state.state.recipe.strMeasure13
+                },
+                {name: state.state.recipe.strIngredient14, measure: state.state.recipe.strMeasure14
+                },
+                {name: state.state.recipe.strIngredient15, measure: state.state.recipe.strMeasure15
+                },
+                {name: state.state.recipe.strIngredient16, measure: state.state.recipe.strMeasure16
+                },
+                {name: state.state.recipe.strIngredient17, measure: state.state.recipe.strMeasure17
+                },
+                {name: state.state.recipe.strIngredient18, measure: state.state.recipe.strMeasure18
+                },
+                {name: state.state.recipe.strIngredient19, measure: state.state.recipe.strMeasure19
+                },
+                {name: state.state.recipe.strIngredient20, measure: state.state.recipe.strMeasure20
+                }],
+                instructions: state.state.recipe.strInstructions
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }      
+        }).then(res =>res.json())
+        .then(resJson =>{
+            console.log('NewForm - resJson', resJson)
+            console.log(event,"event")
+        })
+      }
 
 
 console.log('state',state)
@@ -73,12 +74,12 @@ console.log('state.recipe',state.state.recipe)
         <h1>{state.state.recipe.strMeal}</h1>
         <img src={state.state.recipe.strMealThumb} alt={state.state.recipe.strMeal}/>
         <p>{state.state.recipe.strInstructions}</p>
-        
+
             
 
 
 
-            {/* <input onClick={sendBack} type='submit' value='Favorite'/> */}
+            <input onClick={sendBack} type='submit' value='Favorite'/>
                
 
               
