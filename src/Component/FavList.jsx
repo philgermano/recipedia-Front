@@ -6,6 +6,12 @@ function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
 
+  const handleDelete =(id) =>{
+    fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
+        method: 'DELETE',
+    })
+    }
+
   
 const getFavs = useCallback(event =>{
     //stops page reload
@@ -37,6 +43,8 @@ const getFavs = useCallback(event =>{
                                   recipe: data
                     
                               }}>Recipe</Link>
+                             
+                              <input onClick={handleDelete(data._id)} type='submit' value='Delete'/>
                               </li>
                             
                              
