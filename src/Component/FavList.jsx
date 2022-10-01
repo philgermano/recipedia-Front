@@ -25,10 +25,28 @@ const getFavs = useCallback(event =>{
     return (
         <div>
                     <h1>Favorite list</h1>
-        </div>
-    )
-
-}
+                    {favorites&&(
+                    
+                    <ul>
+                              {favorites.recipes.map((data,i)=>(
+                             
+                              <li  recipe={data} key={i} >{data.name}
+                              <img src={data.image} alt={data.name} />
+                              <Link to={`/recipe`} className='text-link' 
+                              state={{
+                                  recipe: data
+                    
+                              }}>Recipe</Link>
+                              </li>
+                            
+                             
+                            ))}
+                            </ul>
+                  )}
+                  </div>
+                      )
+                  
+                  }
 
 
 export default FavList
