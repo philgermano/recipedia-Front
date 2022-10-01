@@ -7,6 +7,7 @@ import About from './routes/about'
 import Search from './Component/Search';
 import Something from './routes/something';
 import Recipe from './Component/Recipe';
+import FavList from './Component/FavList'
 
 class App extends Component {
   constructor(props){
@@ -64,6 +65,7 @@ render() {
               apiKey: `${process.env.REACT_APP_API_KEY}`,
               query: this.state.query,
               key: '1'}}>Search</Link>
+              <Link to="/fav"  className='text-link' >Favorites</Link>
           </nav>
          <Outlet />
     </div>
@@ -82,6 +84,7 @@ root.render(
        <Route path="something" element={<Something   />} /> 
        <Route path="search" element={<Search />} />
        <Route path="recipe" element={<Recipe />}/>
+       <Route path="fav" element={<FavList />}/>
        <Route
       path="*"
       element={
