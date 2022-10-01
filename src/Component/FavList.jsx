@@ -6,11 +6,6 @@ function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
 
-  const handleDelete =(id) =>{
-    fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
-        method: 'DELETE',
-    })
-    }
 
   
 const getFavs = useCallback(event =>{
@@ -38,13 +33,13 @@ const getFavs = useCallback(event =>{
                              
                               <li  recipe={data} key={i} >{data.name}
                               <img src={data.image} alt={data.name} />
-                              <Link to={`/recipe`} className='text-link' 
+                              <Link to={`/favorite`} className='text-link' 
                               state={{
                                   recipe: data
                     
                               }}>Recipe</Link>
                              
-                              <input onClick={handleDelete(data._id)} type='submit' value='Delete'/>
+                              
                               </li>
                             
                              
