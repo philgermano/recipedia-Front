@@ -1,6 +1,6 @@
-import {React, Component} from 'react';
+import {React, useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Outlet, useLocation } from "react-router-dom";
 import './index.css';
 
 import About from './routes/about'
@@ -8,76 +8,50 @@ import Search from './Component/Search';
 import Something from './routes/something';
 import Recipe from './Component/Recipe';
 
-class App extends Component {
-  constructor(props){
-  super(props)
-    this.state = {
-      //base url  plus additions in order of additions 
-      baseURL: 'https://www.themealdb.com/api/json/v1/',
-      query: '/search.php?s=',
-      queryDetail: '',
-      apiKey: `${process.env.REACT_APP_API_KEY}`,
-      searchURL: '',
-     //to do figure out how would we want to set up the 
+
+function App (props) {
+    
+    const [urlBase, setUrlBase] = useState('https://www.themealdb.com/api/json/v1/');
+    const [query, setQuery] = useState('/search.php?s=');
+    const [apiKey, setApiKey] = useState(`${process.env.REACT_APP_API_KEY}`);
+    const location = useLocation()
+   
+    return (
+      <div className='top-content'>
+        <h1>Recipedia!</h1>
+          <nav   style={{
+            borderBottom: "solid 1px",
+            paddingBottom: "1rem",
+          }}>
+              <Link to="/" className={location.pathname==='/'?'home_active':'home_inactive'} >Home</Link>
+              <Link to="/about" className={location.pathname==='/about'?'home_active':'home_inactive'}  state={
+                {apiKey: apiKey}
+                }>About</Link>    
+              <Link to="/something"  className={location.pathname==='/something'?'home_active':'home_inactive'} >Something</Link>
+              <Link to="/search" className={location.pathname==='/search'?'home_active':'home_inactive'} state={{
+                baseURL: urlBase,
+                apiKey: apiKey,
+                query: query,
+                }}>Search</Link>
+                <Link to="/favlist"  className={location.pathname==='/favlist'?'home_active':'home_inactive'} >Favorites</Link>
+            </nav>
+           <Outlet />
+      </div>
+    );
+  
+    
   }
-  }
-//sets this.queryDetail as current search box
-handleChange= (event) =>{
-  this.setState({[event.target.id]: event.target.value})
-}
-
-//assembles search url and detches the results
-handleSubmit = (event) =>{
-  //stops page reload
-  event.preventDefault()
-this.setState({
-    //assembles search URL
-    searchURL:this.state.baseURL + this.state. apikey +  this.state.query + this.state.queryDetail 
-}, () =>{
-    //FETCH request stuff 
-    fetch(this.state.searchURL)
-          .then(response =>{return response.json()})
-          .then(json => this.setState({recipes:json}),
-          (err) => console.log(err))
-          .then(console.log(this.state.recipes))
-          .then(console.log(this.sendBack))
-})
-}
 
 
-render() {
-  return (
-    <div>
-      <h1>Recipedia!</h1>
-        <nav   style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}>
-            <Link to="/" className='text-link' >Home</Link>
-            <Link to="/about" className='text-link'  state={
-              {dumb:this.state.baseURL ,
-               what:"hello",
-               apiKey: `${process.env.REACT_APP_API_KEY}`}
-              }>About</Link>    
-            <Link to="/something"  className='text-link' >Something</Link>
-            <Link to="/search" className='text-link' state={{baseURL: this.state.baseURL,
-              apiKey: `${process.env.REACT_APP_API_KEY}`,
-              query: this.state.query,
-              key: '1'}}>Search</Link>
-          </nav>
-         <Outlet />
-    </div>
-  );
-
-  }
-}
+export default App;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} >
+      <Route path="/" element={<App />} > 
+      {/* <Route path="/" element={<Navigate replace to="about" />}  />  */}
       <Route path="about"  element={<About  />} />
        <Route path="something" element={<Something   />} /> 
        <Route path="search" element={<Search />} />

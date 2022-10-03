@@ -32,7 +32,7 @@ function Search (props){
   })
 
     return (
-        <div>
+        <div className='search'>
       
         {/* form for query */}
 <form onSubmit={handleSubmit}>
@@ -48,8 +48,8 @@ function Search (props){
             value='Find Recipes'
             />
 </form>
-<h1>{state.searchURL}</h1>
-            <h1>Recipes</h1>
+<h2>{state.searchURL}</h2>
+
             <a href={searchURL}>{searchURL}</a>
             
                       {recipes&&(
