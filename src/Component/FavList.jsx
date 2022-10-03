@@ -5,7 +5,7 @@ import Recipe from './Recipe';
 function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
-  const [timer, setTimer] =useState(false);
+  const [updateData, setUpdate] =useState(false);
   const [tempFavs, setTempFavs] = useState(null);
 
 
@@ -25,7 +25,7 @@ const getFavs = useCallback(event =>{
         getFavs();   
         // setTimer(false)
         // setTimeout(()=> setTimer(true), 2000);
-    },[timer]);
+    },[this.updateData]);
 
     return (
         <div>

@@ -6,11 +6,21 @@ body {
   margin: 0;
   padding: 0;
 }
-.text-link {
-  padding: 15px;
-}
+
 
 
 img{
   max-width: 250px;
+}
+/* Clara - testing */
+body{
+  background-color: bisque;
+}
+.top-content a{
+  padding: 15px;
+  text-decoration: none;
+}
+.home_active{
+  color: darkred;
+  text-decoration: underline!important;
 }

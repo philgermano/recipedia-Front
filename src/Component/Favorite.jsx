@@ -28,7 +28,7 @@ console.log('state.recipe',state.state.recipe)
 
         <input onClick={async ()=>{
             handleDelete(state.state.recipe._id);
-            navigate('/favlist');}} type='submit' value='Delete'/>   
+            navigate('/favlist', {state:{updateData:!updateData}})}} type='submit' value='Delete'/>   
            
             
 
