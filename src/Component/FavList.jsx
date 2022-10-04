@@ -5,7 +5,7 @@ import Recipe from './Recipe';
 function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
-  const [updateData, setUpdate] =useState(false);
+  const [timer, setTimer] =useState(true);
   const [tempFavs, setTempFavs] = useState(null);
 
 
@@ -23,9 +23,9 @@ const getFavs = useCallback(event =>{
         ///Placeholder On recipe page click it set timer. Turns to opposite. On showing this component again it'll see timer had changed and rerun whats in getFavs.
     useEffect(()=>{
         getFavs();   
-        // setTimer(false)
-        // setTimeout(()=> setTimer(true), 2000);
-    },[this.updateData]);
+        setTimer(false)
+        setTimeout(()=> setTimer(true), 10000);
+    },[timer]);
 
     return (
         <div>
@@ -38,7 +38,7 @@ const getFavs = useCallback(event =>{
                               <li  recipe={data} key={i} >{data.name}
                               <img src={data.image} alt={data.name} />
                               <Link to={`/favorite`} 
-                              onClick={()=> setTimeout(()=> setTimer(timer => !timer), 2000)}
+                              // onClick={()=> setTimeout(()=> setTimer(timer => !timer), 2000)}
                               className='text-link' 
                               state={{
                                 recipe: data
