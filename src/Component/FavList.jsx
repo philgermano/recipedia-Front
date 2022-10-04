@@ -5,7 +5,7 @@ import Recipe from './Recipe';
 function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
-  const [updateData, setUpdate] =useState(false);
+  const [updateData, setUpdate] = useState(false);
   const [tempFavs, setTempFavs] = useState(null);
 
 
