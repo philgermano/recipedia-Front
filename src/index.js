@@ -7,7 +7,8 @@ import About from './routes/about'
 import Search from './Component/Search';
 import Something from './routes/something';
 import Recipe from './Component/Recipe';
-
+import FavList from './Component/FavList';
+import Favorite from './Component/Favorite';
 
 function App (props) {
     
@@ -56,6 +57,8 @@ root.render(
        <Route path="something" element={<Something   />} /> 
        <Route path="search" element={<Search />} />
        <Route path="recipe" element={<Recipe />}/>
+       <Route path="favlist" element={<FavList />}/>
+       <Route path="favorite" element={<Favorite />} />
        <Route
       path="*"
       element={
