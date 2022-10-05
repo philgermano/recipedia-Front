@@ -5,22 +5,48 @@
 body {
   margin: 0;
   padding: 0;
+  background-image: url("/public/background-img.jpeg");
+  background-size:120em;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:cover;
 }
 
-
+#title {
+  font-family: 'Lavishly Yours', cursive;
+  font-size: 100px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  line-height: 0.1;
+  text-shadow: 2px 4px lightyellow;
+}
 
 img{
   max-width: 250px;
 }
+
 /* Clara - testing */
-body{
-  background-color: bisque;
+
+.top-content nav{
+  background-color: black;
+  padding-top: 15px;
+  text-align: center;
+  font-family: Kurale;
+  font-size: 23px;
+  line-height: 0.5;
 }
+
 .top-content a{
   padding: 15px;
   text-decoration: none;
 }
+
 .home_active{
-  color: darkred;
+  color: lightgreen;
   text-decoration: underline!important;
+}
+
+.home_inactive{
+  color: white;
 }
