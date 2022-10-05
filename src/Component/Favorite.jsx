@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react'
+import React, {Component, useState, useReducer} from 'react'
 import {Navigate, useLocation, useNavigate} from 'react-router-dom'
 import '../App.css'
 
@@ -7,7 +7,8 @@ function Favorite (props){
     //imports information passed from search page
 const state = useLocation();
 let navigate = useNavigate();
-
+const [recipe, setRecipe] = useState(null)
+const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
 const handleDelete =(id) =>{
     fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
@@ -17,13 +18,16 @@ const handleDelete =(id) =>{
 
     const handleInStock=(id) =>{
         fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
-            method: 'Put',
-            body: JSON.stringify({recipe: !state.state.recipe} ),
+            method: 'PUT',
+			body: JSON.stringify(state.state.recipe),
 			headers:{
 				'Content-Type': 'application/json'
 			}
-        })
-    }
+		}).then((res) => res.json())
+        .then((data) => {
+        //   console.log("success", data);
+          });
+	}
 
 console.log('state',state)
 console.log('state.recipe',state.state.recipe)
@@ -41,9 +45,13 @@ console.log('state.recipe',state.state.recipe)
             <ul className="ingredients-list">
                 {state.state.recipe.ingredients.map((data,i)=>(
                 data.name &&
-                <li onClick={()=>{ data.inStock = !data.inStock; handleInStock(data._id)
-                }}> 
-                        {data.inStock ? '✅': '❌'}  {data.measure} {data.name}
+                <li key={i}> 
+                    <span onClick={()=>{
+                // console.log('ID', state.state.recipe._id); 
+                data.inStock = !data.inStock; 
+                handleInStock(state.state.recipe._id);
+                forceUpdate();
+                }}> {data.inStock ? '✅': '❌'}</span>  {data.measure} {data.name}
                     </li>
                 ))}
                     </ul>
