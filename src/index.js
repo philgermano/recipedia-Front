@@ -19,22 +19,20 @@ function App (props) {
    
     return (
       <div className='top-content'>
-        <h1>Recipedia!</h1>
+        <h1 id="title">Recipedia!</h1>
           <nav   style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem",
           }}>
-              <Link to="/" className={location.pathname==='/'?'home_active':'home_inactive'} >Home</Link>
-              <Link to="/about" className={location.pathname==='/about'?'home_active':'home_inactive'}  state={
-                {apiKey: apiKey}
-                }>About</Link>    
-              <Link to="/something"  className={location.pathname==='/something'?'home_active':'home_inactive'} >Something</Link>
               <Link to="/search" className={location.pathname==='/search'?'home_active':'home_inactive'} state={{
                 baseURL: urlBase,
                 apiKey: apiKey,
                 query: query,
                 }}>Search</Link>
                 <Link to="/favlist"  className={location.pathname==='/favlist'?'home_active':'home_inactive'} >Favorites</Link>
+                <Link to="/about" className={location.pathname==='/about'?'home_active':'home_inactive'}  state={
+                {apiKey: apiKey}
+                }>About</Link>    
             </nav>
            <Outlet />
       </div>
@@ -54,7 +52,6 @@ root.render(
       <Route path="/" element={<App />} > 
       {/* <Route path="/" element={<Navigate replace to="about" />}  />  */}
       <Route path="about"  element={<About  />} />
-       <Route path="something" element={<Something   />} /> 
        <Route path="search" element={<Search />} />
        <Route path="recipe" element={<Recipe />}/>
        <Route path="favlist" element={<FavList />}/>

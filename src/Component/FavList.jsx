@@ -5,11 +5,7 @@ import Recipe from './Recipe';
 function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
-<<<<<<< HEAD
-  const [updateData, setUpdate] = useState(false);
-=======
   const [timer, setTimer] =useState(true);
->>>>>>> 89cb42976a8855bb3e3839391223c7f29f65b137
   const [tempFavs, setTempFavs] = useState(null);
 
 
