@@ -41,7 +41,7 @@ console.log('state.recipe',state.state.recipe)
             <ul className="ingredients-list">
                 {state.state.recipe.ingredients.map((data,i)=>(
                 data.name &&
-                <li onClick={()=>{ data.inStock = !data.inStock; 
+                <li onClick={()=>{ data.inStock = !data.inStock; handleInStock(data._id)
                 }}> 
                         {data.inStock ? '✅': '❌'}  {data.measure} {data.name}
                     </li>
