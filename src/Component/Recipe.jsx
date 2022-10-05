@@ -70,18 +70,6 @@ const state = useLocation();
 console.log('state',state)
 console.log('state.recipe',state.state.recipe)
 
-<<<<<<< HEAD
-return(
-    <div id="recipe-card">
-        <div class="recipe-head">
-            <h1 class="recipe-title">{state.state.recipe.strMeal}</h1>
-            <input class="submit-button" onClick={sendBack} type='submit' value='♡'/>
-        </div>
-        <img class="food-picture" src={state.state.recipe.strMealThumb} alt={state.state.recipe.strMeal}/>
-        <p class="recipe-text">{state.state.recipe.strInstructions}</p>
-    </div>
-)
-=======
     return(
         <div id="recipe-card">
             <div className="recipe-head">
@@ -156,7 +144,6 @@ return(
             <p className="recipe-text">{state.state.recipe.strInstructions}</p>
         </div>
     )
->>>>>>> c6c6ba765a0cb6e4931659943955045d997f5818
 
 }
 
