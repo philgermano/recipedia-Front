@@ -36,7 +36,7 @@ function Search (props){
       
         {/* form for query */}
 <form onSubmit={handleSubmit}>
-    <label htmlFor="queryDetail">Recipe</label>
+    {/* <label htmlFor="queryDetail">Recipe</label> */}
         <input
           id='queryDetail'
           type='text'
@@ -45,25 +45,30 @@ function Search (props){
           />
           <input
             type='submit'
-            value='Find Recipes'
+            value='Search'
             />
 </form>
 <h2>{state.searchURL}</h2>
 
-            <a href={searchURL}>{searchURL}</a>
+            {/* <a href={searchURL}>{searchURL}</a> */}
             
                       {recipes&&(
                     
 <ul>
           {recipes.meals.map((data,i)=>(
          
-          <li  recipe={data} key={i} >{data.strMeal}
-          <img src={data.strMealThumb}/>
-          <Link to={`/recipe`} className='text-link' 
+          <li  recipe={data} key={i} >
+            <Link to={`/recipe`} className='text-link' 
           state={{
               recipe: data
 
-          }}>Recipe</Link>
+          }}>{data.strMeal}</Link>
+          <img src={data.strMealThumb}/>
+          {/* <Link to={`/recipe`} className='text-link' 
+          state={{
+              recipe: data
+
+          }}>Recipe</Link> */}
           </li>
         
          
