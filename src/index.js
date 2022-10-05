@@ -57,7 +57,7 @@ root.render(
        <Route path="something" element={<Something   />} /> 
        <Route path="search" element={<Search />} />
        <Route path="recipe" element={<Recipe />}/>
-       <Route path="favlist" element={<FavList />}/>
+       <Route path="favlist" element={<FavList />} />
        <Route path="favorite" element={<Favorite />} />
        <Route
       path="*"
