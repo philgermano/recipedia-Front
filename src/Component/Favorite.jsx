@@ -13,7 +13,7 @@ const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
 const getRecipe = useCallback(event =>{
     //console.log(id)
-    fetch(`http://localhost:3000/recipes`+'/'+state.state.recipe_id)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}`+'/'+state.state.recipe_id)
     .then(res =>{return res.json()})
     .then(json => setRecipe(json))
     //.then(console.log(recipe))
