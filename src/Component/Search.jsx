@@ -32,7 +32,7 @@ function Search (props){
   })
 
     return (
-        <div className='search'>
+        <div className='favlist'>
       
         {/* form for query */}
 <form onSubmit={handleSubmit}>
