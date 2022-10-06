@@ -2,6 +2,7 @@ import React, {Component, useState, useEffect, useCallback} from 'react';
 import {useLocation, Link} from 'react-router-dom';
 import Recipe from './Recipe';
 
+
 function Search (props){
   const {state} = useLocation();
   console.log(state);
