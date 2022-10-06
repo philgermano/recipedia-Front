@@ -13,7 +13,7 @@ const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
 const getRecipe = useCallback(event =>{
     //console.log(id)
-    fetch(`http://localhost:3000/recipes`+'/'+state.state.recipe_id)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}`+'/'+state.state.recipe_id)
     .then(res =>{return res.json()})
     .then(json => setRecipe(json))
     //.then(console.log(recipe))
@@ -48,7 +48,7 @@ const handleDelete =(id) =>{
 
         const splitInstructions=(string) => {
             const text = string;
-            const newText = text.split('\n').map(str => <p>{str}</p>);
+            const newText = text.split('\n').map((str, i) => <p key={i}>{str}</p>);
             
             return newText;
           }
@@ -83,7 +83,7 @@ console.log('state',state)
                 ))}
                     </ul>
             <h2 className="subtitles">Prep</h2>
-            <p className="recipe-text">{splitInstructions(recipe.recipe.instructions)}</p>
+            <div className="recipe-text">{splitInstructions(recipe.recipe.instructions)}</div>
             
             
            </>
