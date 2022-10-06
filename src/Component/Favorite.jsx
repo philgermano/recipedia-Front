@@ -48,7 +48,7 @@ const handleDelete =(id) =>{
 
         const splitInstructions=(string) => {
             const text = string;
-            const newText = text.split('\n').map(str => <p>{str}</p>);
+            const newText = text.split('\n').map((str, i) => <p key={i}>{str}</p>);
             
             return newText;
           }
@@ -83,7 +83,7 @@ console.log('state',state)
                 ))}
                     </ul>
             <h2 className="subtitles">Prep</h2>
-            <p className="recipe-text">{splitInstructions(recipe.recipe.instructions)}</p>
+            <div className="recipe-text">{splitInstructions(recipe.recipe.instructions)}</div>
             
             
            </>
