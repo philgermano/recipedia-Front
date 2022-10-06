@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {useLocation} from 'react-router-dom'
-import '../App.css'
+import '../index.css'
 //This is all old stuff
 
 function Recipe (props){

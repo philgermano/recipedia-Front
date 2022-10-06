@@ -17,6 +17,7 @@ function App (props) {
           <nav   style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem",
+            width: "100%",
           }}>
               <Link to="/" className='text-link' >Home</Link>
               <Link to="/about" className='text-link'  state={
@@ -31,6 +32,7 @@ function App (props) {
                 <Link to="/favlist"  className='text-link' >Favorites</Link>
             </nav>
            <Outlet />
+           <Route path="/" element={<App />} > 
       </div>
     );
   
