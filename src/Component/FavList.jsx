@@ -25,7 +25,7 @@ const getFavs = useCallback(event =>{
         getFavs();   
         setTimer(false)
         setTimeout(()=> setTimer(true), 10000);
-    },[timer]);
+    },[timer]);  
 
     return (
         <div className='favlist'>
