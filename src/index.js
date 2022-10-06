@@ -5,13 +5,11 @@ import './index.css';
 
 import About from './routes/about'
 import Search from './Component/Search';
-import Something from './routes/something';
 import Recipe from './Component/Recipe';
 import FavList from './Component/FavList';
 import Favorite from './Component/Favorite';
 
 function App (props) {
-    
     const [urlBase, setUrlBase] = useState('https://www.themealdb.com/api/json/v1/');
     const [query, setQuery] = useState('/search.php?s=');
     const [apiKey, setApiKey] = useState(`${process.env.REACT_APP_API_KEY}`);
@@ -49,7 +47,7 @@ root.render(
  
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} > 
+      <Route path="/" element={<App />} >
       {/* <Route path="/" element={<Navigate replace to="about" />}  />  */}
       <Route path="about"  element={<About  />} />
        <Route path="search" element={<Search />} />
