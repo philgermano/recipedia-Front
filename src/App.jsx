@@ -17,18 +17,17 @@ function App (props) {
           <nav   style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem",
+            width: "100%",
           }}>
-              <Link to="/" className='text-link' >Home</Link>
-              <Link to="/about" className='text-link'  state={
-                {apiKey: apiKey}
-                }>About</Link>    
-              <Link to="/something"  className='text-link' >Something</Link>
               <Link to="/search" className='text-link' state={{
                 baseURL: urlBase,
                 apiKey: apiKey,
                 query: query,
                 }}>Search</Link>
-                <Link to="/favlist"  className='text-link' >Favorites</Link>
+              <Link to="/favlist"  className='text-link' >Favorites</Link>
+              <Link to="/about" className='text-link'  state={
+                {apiKey: apiKey}
+                }>About</Link> 
             </nav>
            <Outlet />
       </div>
