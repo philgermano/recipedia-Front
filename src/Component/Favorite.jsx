@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react'
+import React, {Component, useState, useReducer, useEffect, useCallback} from 'react'
 import {Navigate, useLocation, useNavigate} from 'react-router-dom'
 import '../App.css'
 
@@ -7,7 +7,18 @@ function Favorite (props){
     //imports information passed from search page
 const state = useLocation();
 let navigate = useNavigate();
+const [recipe, setRecipe] = useState(null)
+const [timer, setTimer] =useState(true);
+const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
+const getRecipe = useCallback(event =>{
+    //console.log(id)
+    fetch(`http://localhost:3000/recipes`+'/'+state.state.recipe_id)
+    .then(res =>{return res.json()})
+    .then(json => setRecipe(json))
+    //.then(console.log(recipe))
+    .then(console.log("recipe here", recipe))
+})
 
 const handleDelete =(id) =>{
     fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
@@ -15,45 +26,70 @@ const handleDelete =(id) =>{
     })
     }
 
+    useEffect(()=>{
+        console.log(state.state.recipe_id)
+        getRecipe(state.state.recipe_id)  
+        // setTimer(false)
+        // setTimeout(()=> setTimer(true), 10000);
+    },[]);
+
     const handleInStock=(id) =>{
         fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
-            method: 'Put',
-            body: JSON.stringify({recipe: !state.state.recipe} ),
+            method: 'PUT',
+			body: JSON.stringify(recipe.recipe),
 			headers:{
 				'Content-Type': 'application/json'
 			}
-        })
-    }
+		}).then((res) => res.json())
+        .then((data) => {
+          console.log("success", data);
+          })
+        }
+
+        const splitInstructions=(string) => {
+            const text = string;
+            const newText = text.split('\n').map(str => <p>{str}</p>);
+            
+            return newText;
+          }
 
 console.log('state',state)
-console.log('state.recipe',state.state.recipe)
+// console.log('state.recipe',state.state.recipe)
 
    return(
+            
         <div id="recipe-card">
+             {recipe&&(
+                <>
             <div className="recipe-head">
-                <h1 className="recipe-title">{state.state.recipe.name}</h1>
+                <h1 className="recipe-title">{recipe.recipe.name}</h1>
                 <input className="submit-button" onClick={async ()=>{
-            handleDelete(state.state.recipe._id);
+            handleDelete(recipe.recipe._id);
             navigate('/favlist')}} type='submit'  value='ⓧ'/> 
             </div>
-            <img className="food-picture" src={state.state.recipe.image} alt={state.state.recipe.name}/>
+            <img className="food-picture" src={recipe.recipe.image} alt={recipe.recipe.name}/>
             <h2 className="subtitles">Ingredients</h2>
             <ul className="ingredients-list">
-                {state.state.recipe.ingredients.map((data,i)=>(
+                {recipe.recipe.ingredients.map((data,i)=>(
                 data.name &&
-                <li onClick={()=>{ data.inStock = !data.inStock; 
-                }}> 
-                        {data.inStock ? '✅': '❌'}  {data.measure} {data.name}
+                <li key={i}> 
+                    <span onClick={()=>{
+                // console.log('ID', state.state.recipe._id); 
+                data.inStock = !data.inStock; 
+                handleInStock(recipe.recipe._id);
+                forceUpdate();
+                }}> {data.inStock ? '✅': '❌'}</span>  {data.measure} {data.name}
                     </li>
                 ))}
                     </ul>
             <h2 className="subtitles">Prep</h2>
-            <p className="recipe-text">{state.state.recipe.instructions}</p>
-            <input onClick={async ()=>{
-            handleDelete(state.state.recipe._id);
-            navigate('/favlist')}} type='submit' value='Delete'/>   
-           
+            <p className="recipe-text">{splitInstructions(recipe.recipe.instructions)}</p>
+            
+            
+           </>
+            )}
         </div>
+            
     )
 
 }

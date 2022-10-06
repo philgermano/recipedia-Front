@@ -8,6 +8,9 @@ import Search from './Component/Search';
 import Recipe from './Component/Recipe';
 import FavList from './Component/FavList';
 import Favorite from './Component/Favorite';
+import Phil from './routes/Phil';
+import Carlos from './routes/Carlos';
+import Clara from './routes/Clara';
 
 function App (props) {
     const [urlBase, setUrlBase] = useState('https://www.themealdb.com/api/json/v1/');
@@ -47,9 +50,13 @@ root.render(
  
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} >
-      {/* <Route path="/" element={<Navigate replace to="about" />}  />  */}
-      <Route path="about"  element={<About  />} />
+      <Route path="/" element={<App />} > 
+      {/* <Route path="/" element={<Navigate replace to="search" />}  />  */}
+      <Route path="about"  element={<About  />} >
+      <Route path="phil"  element={<Phil />} />
+      <Route path="carlos"  element={<Carlos  />} />
+      <Route path="clara"  element={<Clara />} />
+      </Route>
        <Route path="search" element={<Search />} />
        <Route path="recipe" element={<Recipe />}/>
        <Route path="favlist" element={<FavList />} />

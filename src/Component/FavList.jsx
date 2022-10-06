@@ -38,7 +38,7 @@ const getFavs = useCallback(event =>{
                               // onClick={()=> setTimeout(()=> setTimer(timer => !timer), 2000)}
                               className='text-link' 
                               state={{
-                                recipe: data
+                                recipe_id: data._id
                                                      
                               }} >{data.name}</Link>
                               <img src={data.image} alt={data.name} />
