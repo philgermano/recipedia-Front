@@ -13,7 +13,6 @@ import Carlos from './routes/Carlos';
 import Clara from './routes/Clara';
 
 function App (props) {
-    
     const [urlBase, setUrlBase] = useState('https://www.themealdb.com/api/json/v1/');
     const [query, setQuery] = useState('/search.php?s=');
     const [apiKey, setApiKey] = useState(`${process.env.REACT_APP_API_KEY}`);
@@ -21,7 +20,7 @@ function App (props) {
    
     return (
       <div className='top-content'>
-        <h1 id="title">Recipedia!</h1>
+        <h1 id="title"><a href="/search">Recipedia!</a></h1>
           <nav   style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem",

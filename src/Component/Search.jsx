@@ -33,7 +33,7 @@ function Search (props){
   })
 
     return (
-        <div className='search'>
+        <div className='favlist'>
       
         {/* form for query */}
 <form onSubmit={handleSubmit}>
@@ -64,7 +64,11 @@ function Search (props){
               recipe: data
 
           }}>{data.strMeal}</Link>
-          <img src={data.strMealThumb}/>
+          <Link to={`/recipe`} className='text-link' 
+          state={{
+              recipe: data
+
+          }}><img src={data.strMealThumb}/></Link>
           {/* <Link to={`/recipe`} className='text-link' 
           state={{
               recipe: data
