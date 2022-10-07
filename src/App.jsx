@@ -19,15 +19,11 @@ function App (props) {
             paddingBottom: "1rem",
             width: "100%",
           }}>
-<<<<<<< HEAD
               <Link to="/" className='text-link' >Home</Link>
               <Link to="/about" className='text-link'  state={
                 {apiKey: apiKey}
                 }>About</Link>   
                 <Link to="/search" className='text-link' state={{
-=======
-              <Link to="/search" className='text-link' state={{
->>>>>>> ffa9797a12a990a02a14cd743d1de66d375e6a32
                 baseURL: urlBase,
                 apiKey: apiKey,
                 query: query,

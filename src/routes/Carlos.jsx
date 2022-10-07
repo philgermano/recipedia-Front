@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {Component, useState, useReducer, useEffect, useCallback} from 'react'
+import {Navigate, useLocation, useNavigate} from 'react-router-dom'
+import '../App.css'
 
 const  Carlos=() =>{
   return <div className='carlos'>

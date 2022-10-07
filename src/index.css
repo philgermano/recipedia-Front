@@ -6,22 +6,23 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("/public/background-img.jpeg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
-  background-size: cover;
   color: black;
+  background-color: white;
 }
 
 #title {
   font-family: 'Lavishly Yours', cursive;
   font-size: 100px;
+  color: darkolivegreen;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: black;
+  margin-left: 7%;
+  margin-bottom: 20px;
   padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  line-height: 0.1;
+  padding-top: 20px;
+  line-height: 1;
   text-shadow: 2px 4px lightyellow;
+  cursor: default;
 }
 
 #title a {
@@ -29,39 +30,44 @@ body {
   cursor: pointer;
 }
 
+
 .search, .favlist {
   text-align: center;
-  margin: 10px;
+  margin: 10px auto auto auto;
   font-family: kurale;
   font-size: 18px;
 }
 
 .search input, .favlist input {
-  margin: 40px 25px 20px 25px; 
+  margin: 50px 25px 20px 25px; 
   padding: 5px 20px;
   border-radius: 5px;
   font-family: Kurale;
   font-size: 20px;
 }
 
-.search ul, .favlist ul{
+.search ul, .favlist ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 7%;
+  margin-right: 7%;
+  justify-content:flex-start;
 }
 
-.search li, .favlist li{
+.search li, .favlist li {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 15px;
   background-color: white;
   max-width: 280px;
-  margin-right: auto;
-  margin-bottom: 20px;
-  padding: 0 5px 5px 5px;
+  padding: 0 15px 15px 15px;
+  line-height: 1;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  justify-content:flex-start;
 }
 
 .search img, .favlist img {
@@ -69,8 +75,34 @@ body {
   border: 1px solid gray;
 }
 
-.search a, .favlist a {
-  color: black;
+.favlist {
+  display:flex;
+  font-family: kurale;
+  font-size: 18px;
+  justify-content:flex-start;
+}
+
+.favlist-ul {
+  display:flexbox;
+  align-items: left;
+}
+
+.favlist li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 15px;
+  background-color: white;
+  max-width: 280px;
+  padding: 0 15px 15px 15px;
+  line-height: 1;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.favlist img {
+  border-radius: 10px;
+  border: 1px solid gray;
 }
 
 img{
@@ -81,10 +113,19 @@ img{
   margin-top: 50px;
 }
 
+.header {
+  background-image: url("/public/background-img.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0 -70px;
+  background-size: 100%;
+  object-fit: cover;
+}
+
 /* Clara - testing */
 
 .top-content nav{
-  background-color: black;
+  background-color: bisque;
   padding-top: 15px;
   text-align: center;
   font-family: Kurale;
@@ -95,25 +136,27 @@ img{
 .top-content a{
   padding: 15px 15px 0px 15px;
   text-decoration: none;
+
 }
 
 .home_active{
-  color: lightgreen;
+  color: darkgreen;
   text-decoration: underline!important;
 }
 
 .home_inactive{
-  color: white;
+  color: green;
+  opacity: 70%;
 }
 
 
 /*carlos*/
-#recipe-card {
+#recipe-card{
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  border: 2px solid black;
+  border: 1px solid gray;
   border-radius:20px;
   margin-bottom: 50px;
   background-color: white;
@@ -170,4 +213,79 @@ img{
 .subtitles {
   margin-left: 17px;
   font-family: Kurale;
+}
+
+.about-text p {
+  background: white;
+  max-width: 650px;
+  margin: 20px auto 30px auto;
+  padding: 20px;
+  border-radius: 25px;
+  line-height: 1.5;
+}
+
+.about-nav {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.text-link {
+  color: black;
+  font-size: 22px;
+}
+
+.logo{
+  position: absolute;
+  width: 60px;
+  left: 5%;
+  top: 130px;
+  filter: drop-shadow(2px 0 0 darkgreen) 
+  drop-shadow(0 2px 0 darkgreen)
+  drop-shadow(-2px 0 0 darkgreen) 
+  drop-shadow(0 -2px 0 darkgreen);
+}
+
+.dev-team {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: default;
+}
+
+.dev-team-card {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 30px;
+  line-height: 1;
+  color: black;
+  border: 1px solid gray;
+  border-radius:20px;
+  margin-bottom: 50px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dev-team li {
+  list-style: none;
+}
+
+Link {
+  color: black;
+  text-decoration: none;
+}
+
+.names {
+  font-size: 24px;
+  margin-top: 10px;
+  line-height: 0.5;
+}
+
+.picture {
+  width: 250px;
+  margin-bottom: 20px;
 }
