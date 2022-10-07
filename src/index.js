@@ -21,9 +21,8 @@ function App (props) {
     return (
       <div className='top-content'>
         <div className="header">
-        <h1 id="title">Recipedia!</h1>
+          <h1 id="title">Recipedia!</h1>
           <nav   style={{
-            borderBottom: "solid 1px",
             paddingBottom: "1rem",
           }}>
               <Link to="/search" className={location.pathname==='/search'?'home_active':'home_inactive'} state={{
