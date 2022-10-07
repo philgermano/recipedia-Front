@@ -21,8 +21,8 @@ function App (props) {
     return (
       <div className='top-content'>
         <div className="header">
-          <h1 id="title">Recipedia!</h1>
           <div><img className="logo" src={require('./img/logo.png')} /></div>
+          <h1 id="title">Recipedia!</h1>
           <nav   style={{
             paddingBottom: "1rem",
           }}>
