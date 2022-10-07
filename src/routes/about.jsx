@@ -19,7 +19,6 @@ console.log(state)
     </p>
     </div>
   <AboutNav/>
-<Outlet/>
   </main>
     )
 }

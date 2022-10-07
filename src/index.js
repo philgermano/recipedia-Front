@@ -22,9 +22,11 @@ function App (props) {
       <div className='top-content'>
         <div className="header">
           <h1 id="title">Recipedia!</h1>
+          <div><img className="logo" src={require('./img/logo.png')} /></div>
           <nav   style={{
             paddingBottom: "1rem",
           }}>
+            
               <Link to="/search" className={location.pathname==='/search'?'home_active':'home_inactive'} state={{
                 baseURL: urlBase,
                 apiKey: apiKey,

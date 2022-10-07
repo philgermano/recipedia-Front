@@ -1,13 +1,37 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import '../index.css';
 
 const AboutNav=()=>{
 
     const location = useLocation()
     return <div className="about-nav">
-        <Link to="/about/carlos" className={location.pathname==='/about/carlos'?'tab_active':'tab_inactive'}>Carlos</Link>
-        <Link to="/about/clara" className={location.pathname==='/about/clara'?'tab_active':'tab_inactive'}>Clara</Link>
-        <Link to="/about/phil" className={location.pathname==='/about/phil'?'tab_active':'tab_inactive'}>Phil</Link>
+        <ul className="dev-team">
+            <li>
+                <div className="dev-team-card" >
+                    <Link to="/about/carlos" className="about-link" style={{textDecoration: 'none', color:'black'}} >
+                        <p className="names">Carlos</p>
+                        <img className="picture" src={require('../img/logo.png')} />
+                    </Link>
+                </div>
+            </li>
+            <li>
+                <div className="dev-team-card" >
+                    <Link to="/about/clara" className="about-link" style={{textDecoration: 'none', color:'black'}} >
+                        <p className="names">Clara</p>
+                        <img className="picture" src={require('../img/logo.png')} />
+                    </Link>
+                </div>
+            </li>
+            <li>
+                <div className="dev-team-card" >
+                    <Link to="/about/phil" className="about-link" style={{textDecoration: 'none', color:'black'}} >
+                        <p className="names">Phil</p>
+                        <img className="picture" src={require('../img/logo.png')} />
+                    </Link>
+                </div>
+            </li>
+        </ul>
     </div>;
 }
 
