@@ -149,7 +149,6 @@ img{
   opacity: 70%;
 }
 
-
 /*carlos*/
 #recipe-card{
   max-width: 650px;
@@ -216,11 +215,10 @@ img{
 }
 
 .about-text p {
-  background: white;
+  font-size: 16px;
   max-width: 650px;
   margin: 20px auto 30px auto;
   padding: 20px;
-  border-radius: 25px;
   line-height: 1.5;
 }
 
@@ -237,7 +235,7 @@ img{
 }
 
 .logo{
-  position:fixed;
+  position:absolute;
   /* align-items: center;
   width: 35px;
   left: 190px;*/
@@ -268,9 +266,14 @@ img{
   color: black;
   border: 1px solid gray;
   border-radius:20px;
-  margin-bottom: 50px;
+  margin-bottom: 18px;
   background-color: white;
   cursor: pointer;
+  height: 340px;
+}
+
+.dev-team-card:active {
+  background-color: lightyellow;
 }
 
 .dev-team li {
@@ -289,6 +292,24 @@ Link {
 }
 
 .picture {
-  width: 250px;
-  margin-bottom: 20px;
+  height: 250px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 1px solid gray;
+}
+
+svg{
+  margin-bottom: 50px;
+}
+
+svg:hover {
+  fill: bisque;
+}
+
+.dev-text {
+  line-height: 2;
+  font-size: 16px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
