@@ -16,7 +16,7 @@ body {
   color: darkolivegreen;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: black;
-  margin-left: 7%;
+  margin-left: 180px;
   margin-bottom: 20px;
   padding-left: 30px;
   padding-top: 20px;
@@ -145,7 +145,7 @@ img{
 }
 
 .home_inactive{
-  color: green;
+  color: black;
   opacity: 70%;
 }
 
@@ -237,14 +237,17 @@ img{
 }
 
 .logo{
-  position: absolute;
-  width: 60px;
-  left: 5%;
-  top: 130px;
-  filter: drop-shadow(2px 0 0 darkgreen) 
-  drop-shadow(0 2px 0 darkgreen)
-  drop-shadow(-2px 0 0 darkgreen) 
-  drop-shadow(0 -2px 0 darkgreen);
+  position:fixed;
+  /* align-items: center;
+  width: 35px;
+  left: 190px;*/
+  width:110px;
+  left: 20px;
+  top: 15px; 
+  filter: drop-shadow(2px 0 0 black) 
+  drop-shadow(0 2px 0 lightyellow)
+  drop-shadow(-2px 0 0 black) 
+  drop-shadow(0 -2px 0 lightyellow);
 }
 
 .dev-team {
