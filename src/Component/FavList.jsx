@@ -31,7 +31,7 @@ const getFavs = useCallback(event =>{
         <div className='favlist'>
                     {favorites&&(
                     
-                    <ul>
+                    <ul className='favlist-ul'>
                               {favorites.recipes.map((data,i)=>(
                              
                               <li  recipe={data} key={i} ><Link to={`/favorite`} 
@@ -41,7 +41,15 @@ const getFavs = useCallback(event =>{
                                 recipe_id: data._id
                                                      
                               }} >{data.name}</Link>
-                              <img src={data.image} alt={data.name} />
+                              <Link to={`/favorite`}
+                                className='text-link' 
+                                state={{
+                                  recipe_id: data._id
+                                                       
+                                }} ><img src={data.image} alt={data.name} /></Link>
+                              
+                              
+          
                               {/* <Link to={`/favorite`} 
                               // onClick={()=> setTimeout(()=> setTimer(timer => !timer), 2000)}
                               className='text-link' 

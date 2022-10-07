@@ -20,7 +20,8 @@ function App (props) {
    
     return (
       <div className='top-content'>
-        <h1 id="title"><a href="/search">Recipedia!</a></h1>
+        <div className="header">
+        <h1 id="title">Recipedia!</h1>
           <nav   style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem",
@@ -35,6 +36,7 @@ function App (props) {
                 {apiKey: apiKey}
                 }>About</Link>    
             </nav>
+        </div>
            <Outlet />
       </div>
     );
