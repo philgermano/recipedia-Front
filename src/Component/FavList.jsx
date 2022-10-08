@@ -47,16 +47,7 @@ const getFavs = useCallback(event =>{
                                   recipe_id: data._id
                                                        
                                 }} ><img src={data.image} alt={data.name} /></Link>
-                              
-                              
-          
-                              {/* <Link to={`/favorite`} 
-                              // onClick={()=> setTimeout(()=> setTimer(timer => !timer), 2000)}
-                              className='text-link' 
-                              state={{
-                                recipe: data
-                                                     
-                              }} >{data.name}</Link> */}
+
                              
                               
                               </li>
