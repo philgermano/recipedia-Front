@@ -17,15 +17,15 @@ Finally we slowly polished different aspects with some focusing more on the reac
 
 
 ## Unsolved Problems
-There are no currently broken aspects but there is functionality we did not reach that we would have liked to hit. One example is a route to check the backend for an instance of a recipe and not adding it to favorites if it already exists. 
-The frontend currently pulls from the backend periodically. I would have liked for a better solution such as it receiving a signal or a trigger of some sort on rerender. That just wasn't a priority compared to more critical functionalities. 
+There are no currently broken aspects but there is functionality we did not reach that we would have liked to hit. One example is a route to check the backend for an instance of a recipe and not adding it to favorites if it already exists. <br/>
+The frontend currently pulls from the backend periodically. I would have liked for a better solution such as it receiving a signal or a trigger of some sort on rerender. That just wasn't a priority compared to more critical functionalities. <br/>
 
 
 ## User Stories
-As a user I want to search for recipe from the api.
-As a user I want to save them from the api.
-As a user I want to update whether I have the ingredients.
-As a user I want to be able to delete recipes from my saved lists.
+As a user I want to search for recipe from the api. <br/>
+As a user I want to save them from the api. <br/>
+As a user I want to update whether I have the ingredients. <br/>
+As a user I want to be able to delete recipes from my saved lists. <br/>
 
 
 ## Future Additions
@@ -33,6 +33,7 @@ User accounts<br/>
 Limiting search by cuisine or dietary needs<br/>
 A larger recipe library<br/>
 Removing some console logs and cleaning up the coding.<br/>
+Put in error message for if no results. <br/>
 
 
 ### Links
