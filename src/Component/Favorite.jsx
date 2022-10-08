@@ -43,8 +43,9 @@ const handleDelete =(id) =>{
 		}).then((res) => res.json())
         .then((data) => {
           console.log("success", data);
+          getRecipe()
           })
-        }
+                }
 
 
         const splitInstructions=(string) => {
@@ -74,11 +75,10 @@ console.log('state',state)
                 {recipe.recipe.ingredients.map((data,i)=>(
                 data.name &&
                 <li key={i}> 
-                    <span onClick={()=>{
+                    <span onClick={async ()=>{
                 // console.log('ID', state.state.recipe._id); 
                 data.inStock = !data.inStock; 
                 handleInStock(recipe.recipe._id);
-                forceUpdate();
                 }}> {data.inStock ? '✅': '❌'}</span>  {data.measure} {data.name}
                     </li>
                 ))}
