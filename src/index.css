@@ -217,9 +217,10 @@ img{
 .about-text p, .dev-text {
   font-size: 16px;
   max-width: 600px;
-  margin: 10px auto 30px auto;
+  margin: 0px auto -20px auto;
   padding: 20px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .about-nav {

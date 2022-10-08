@@ -10,12 +10,11 @@ console.log(state)
 
     return (
     <main style={{ padding: "1rem 0" }}>
-    <div className="about-text"><p>
-      This site was made by the developers Carlos, Clara and Phil.<br></br>
-      This app was intended to do a search into an API and fetch recipes based on user's search. 
-      If you favorite a recipe, you can check the item on the list of ingredients, if you have it or not.
-
-      See more about the developers below
+    <div className="about-text">
+    <p>
+    This site was made by the developers Carlos, Clara, and Phil.
+    This app was built to track recipes and their ingredients. You can search a database for recipes and favorite ones to revisit later on. You can mark whether or not you have the items on the list of ingredients if you favorite the recipe. See more about the developers below.
+    See more about the developers below:
     </p>
     </div>
   <AboutNav/>
