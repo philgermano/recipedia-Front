@@ -33,7 +33,7 @@ User accounts<br/>
 Limiting search by cuisine or dietary needs<br/>
 A larger recipe library<br/>
 Removing some console logs and cleaning up the coding.<br/>
-Put in error message for if no results. <br/>
+Put in error message for if no results from api. <br/>
 
 
 ### Links
