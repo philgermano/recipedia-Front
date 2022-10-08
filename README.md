@@ -29,10 +29,10 @@ As a user I want to be able to delete recipes from my saved lists.
 
 
 ## Future Additions
-User accounts
-Limiting search by cuisine or dietary needs
-A larger recipe library
-Removing some console logs and cleaning up the coding.
+User accounts<br/>
+Limiting search by cuisine or dietary needs<br/>
+A larger recipe library<br/>
+Removing some console logs and cleaning up the coding.<br/>
 
 
 ### Links
