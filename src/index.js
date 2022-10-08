@@ -54,6 +54,10 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} > 
+      <Route index element={<Search baseURL={'https://www.themealdb.com/api/json/v1/'}
+                apiKey={`${process.env.REACT_APP_API_KEY}`}
+                query={'/search.php?s='} />} />
+
       {/* <Route path="/" element={<Navigate replace to="search" />}  />  */}
       <Route path="about"  element={<About  />} >
       <Route path="phil"  element={<Phil />} />

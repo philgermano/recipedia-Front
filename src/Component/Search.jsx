@@ -7,9 +7,14 @@ function Search (props){
   const {state} = useLocation();
   console.log(state);
     //useState stuff
-  const [searchURL, setURL] = useState('');
+    const [urlBase, setUrlBase] = useState('https://www.themealdb.com/api/json/v1/');
+    const [query, setQueryBase] = useState('/search.php?s=');
+    const [apiKey, setApiKey] = useState(`${process.env.REACT_APP_API_KEY}`);
+  const [searchURL, setURL] = useState(null);
   const [queryDetail, setQuery] = useState('')
   const [recipes, setRecipes] = useState(null)
+
+  
   const handleChange = (event) =>{
     setQuery({[event.target.id]: event.target.value})
   }
@@ -42,14 +47,14 @@ function Search (props){
           id='queryDetail'
           type='text'
           value={queryDetail}
-          onChange={event =>{ setQuery(event.target.value); setURL(state.baseURL + state.apiKey + state.query+ event.target.value) }}
+          onChange={event =>{ setQuery(event.target.value); setURL(urlBase + apiKey + query+ event.target.value) }}
           />
           <input
             type='submit'
             value='Search'
             />
 </form>
-<h2>{state.searchURL}</h2>
+
 
             {/* <a href={searchURL}>{searchURL}</a> */}
             
@@ -69,11 +74,7 @@ function Search (props){
               recipe: data
 
           }}><img src={data.strMealThumb}/></Link>
-          {/* <Link to={`/recipe`} className='text-link' 
-          state={{
-              recipe: data
-
-          }}>Recipe</Link> */}
+          
           </li>
         
          

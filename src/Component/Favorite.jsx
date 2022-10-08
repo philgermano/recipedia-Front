@@ -46,6 +46,7 @@ const handleDelete =(id) =>{
           })
         }
 
+
         const splitInstructions=(string) => {
             const text = string;
             const newText = text.split('\n').map((str, i) => <p key={i}>{str}</p>);
