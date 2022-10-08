@@ -13,6 +13,8 @@ function Search (props){
   const [searchURL, setURL] = useState(null);
   const [queryDetail, setQuery] = useState('')
   const [recipes, setRecipes] = useState(null)
+
+  
   const handleChange = (event) =>{
     setQuery({[event.target.id]: event.target.value})
   }
