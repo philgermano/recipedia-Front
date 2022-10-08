@@ -11,7 +11,7 @@ let navigate = useNavigate();
 const [recipe_id, setRecID] = useState("");
 
     const sendBack = (event) =>{
-        
+         
         event.preventDefault()
         fetch('https://recipedia-ga-team1.herokuapp.com/recipes',{
             method: 'POST',
