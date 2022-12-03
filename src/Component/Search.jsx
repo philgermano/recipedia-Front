@@ -55,10 +55,10 @@ function Search (props){
 
             {/* <a href={searchURL}>{searchURL}</a> */}
             
-                      {recipes&&(
+                      {recipes &&(
                     
 <ul>
-          {recipes.meals.map((data,i)=>(
+          {recipes.meals  ? recipes.meals.map((data,i)=>(
          
           <li  recipe={data} key={i} >
             <Link to={`/recipe`} className='text-link' 
@@ -75,7 +75,7 @@ function Search (props){
           </li>
         
          
-          ))}
+          )): <p>No results</p> }
           </ul>
 )}
 </div>
