@@ -1,12 +1,11 @@
-import React, {Component, useState} from 'react'
-import {useLocation, Navigate, useNavigate} from 'react-router-dom'
+import React, {useState} from 'react'
+import {useLocation, Navigate} from 'react-router-dom'
 import '../index.css'
 //This is all old stuff
 
 function Recipe (props){
     //imports information passed from search page
 const state = useLocation();
-let navigate = useNavigate();
 
 const [recipe_id, setRecID] = useState("");
 
@@ -65,10 +64,10 @@ const [recipe_id, setRecID] = useState("");
             }      
         }).then(res =>res.json())
         .then(resJson =>{
-            console.log('NewForm - resJson', resJson)
-            console.log(event,"event")
+            //console.log('NewForm - resJson', resJson)
+            //console.log(event,"event")
             setRecID(resJson._id)
-            console.log("item ID", recipe_id)
+            //console.log("item ID", recipe_id)
         })
       }
 
@@ -79,8 +78,8 @@ const [recipe_id, setRecID] = useState("");
         return newText;
       }
 
-console.log('state',state)
-console.log('state.recipe',state.state.recipe)
+//console.log('state',state)
+//console.log('state.recipe',state.state.recipe)
 
     return(
         <div id="recipe-card">

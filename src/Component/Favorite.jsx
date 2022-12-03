@@ -1,5 +1,5 @@
-import React, {Component, useState, useReducer, useEffect, useCallback} from 'react'
-import {Navigate, useLocation, useNavigate} from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {useLocation, useNavigate} from 'react-router-dom'
 import '../App.css'
 
 
@@ -8,17 +8,15 @@ function Favorite (props){
 const state = useLocation();
 let navigate = useNavigate();
 const [recipe, setRecipe] = useState(null)
-const [timer, setTimer] =useState(true);
-const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
-const getRecipe = useCallback(event =>{
+const getRecipe = () =>{
     //console.log(id)
-    fetch(`${process.env.REACT_APP_BACKEND_URL}`+'/'+state.state.recipe_id)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}`+ '/' + state.state.recipe_id)
     .then(res =>{return res.json()})
     .then(json => setRecipe(json))
     //.then(console.log(recipe))
-    .then(console.log("recipe here", recipe))
-})
+   // .then(console.log("recipe here", recipe))
+}
 
 const handleDelete =(id) =>{
     fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
@@ -26,11 +24,12 @@ const handleDelete =(id) =>{
     })
     }
 
+
+
     useEffect(()=>{
-        console.log(state.state.recipe_id)
         getRecipe(state.state.recipe_id)  
-        // setTimer(false)
-        // setTimeout(()=> setTimer(true), 10000);
+      
+ // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const handleInStock=(id) =>{
@@ -42,7 +41,7 @@ const handleDelete =(id) =>{
 			}
 		}).then((res) => res.json())
         .then((data) => {
-          console.log("success", data);
+          //console.log("success", data);
           getRecipe()
           })
                 }
@@ -55,7 +54,7 @@ const handleDelete =(id) =>{
             return newText;
           }
 
-console.log('state',state)
+//console.log('state',state)
 // console.log('state.recipe',state.state.recipe)
 
    return(
