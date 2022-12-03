@@ -11,7 +11,7 @@ const [recipe, setRecipe] = useState(null)
 
 const getRecipe = () =>{
     //console.log(id)
-    fetch(`${process.env.REACT_APP_BACKEND_URL}`+ '/' + state.state.recipe_id)
+    fetch(process.env.REACT_APP_BACKEND_URL+ '/' + state.state.recipe_id)
     .then(res =>{return res.json()})
     .then(json => setRecipe(json))
     //.then(console.log(recipe))
@@ -19,7 +19,7 @@ const getRecipe = () =>{
 }
 
 const handleDelete =(id) =>{
-    fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/' + id, {
         method: 'DELETE', 
     })
     }
@@ -33,7 +33,7 @@ const handleDelete =(id) =>{
     },[]);
 
     const handleInStock=(id) =>{
-        fetch(`${process.env.REACT_APP_BACKEND_URL}` + '/' + id, {
+        fetch(process.env.REACT_APP_BACKEND_URL + '/' + id, {
             method: 'PUT',
 			body: JSON.stringify(recipe.recipe),
 			headers:{
