@@ -9,7 +9,7 @@ const state = useLocation();
 let navigate = useNavigate();
 const [recipe, setRecipe] = useState(null)
 const [timer, setTimer] =useState(true);
-const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+const [dnd, setDnd] = useState(null)
 
 const getRecipe = useCallback(event =>{
     //console.log(id)
@@ -17,7 +17,7 @@ const getRecipe = useCallback(event =>{
     .then(res =>{return res.json()})
     .then(json => setRecipe(json))
     //.then(console.log(recipe))
-    .then(console.log("recipe here", recipe))
+   // .then(console.log("recipe here", recipe))
 })
 
 const handleDelete =(id) =>{
@@ -26,11 +26,15 @@ const handleDelete =(id) =>{
     })
     }
 
+
+
     useEffect(()=>{
-        console.log(state.state.recipe_id)
+        //console.log(state.state.recipe_id)
         getRecipe(state.state.recipe_id)  
         // setTimer(false)
         // setTimeout(()=> setTimer(true), 10000);
+       
+
     },[]);
 
     const handleInStock=(id) =>{
@@ -42,7 +46,7 @@ const handleDelete =(id) =>{
 			}
 		}).then((res) => res.json())
         .then((data) => {
-          console.log("success", data);
+          //console.log("success", data);
           getRecipe()
           })
                 }

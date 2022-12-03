@@ -65,10 +65,10 @@ const [recipe_id, setRecID] = useState("");
             }      
         }).then(res =>res.json())
         .then(resJson =>{
-            console.log('NewForm - resJson', resJson)
-            console.log(event,"event")
+            //console.log('NewForm - resJson', resJson)
+            //console.log(event,"event")
             setRecID(resJson._id)
-            console.log("item ID", recipe_id)
+            //console.log("item ID", recipe_id)
         })
       }
 
@@ -79,8 +79,8 @@ const [recipe_id, setRecID] = useState("");
         return newText;
       }
 
-console.log('state',state)
-console.log('state.recipe',state.state.recipe)
+//console.log('state',state)
+//console.log('state.recipe',state.state.recipe)
 
     return(
         <div id="recipe-card">

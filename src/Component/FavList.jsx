@@ -12,13 +12,13 @@ function FavList (props){
   
 const getFavs = useCallback(event =>{
     //stops page reload
-    console.log(process.env.REACT_APP_BACKEND_URL)
+    //console.log(process.env.REACT_APP_BACKEND_URL)
 
     fetch(`${process.env.REACT_APP_BACKEND_URL}`)
         .then(response =>{return response.json()})
         .then(json => setFavs(json),
         (err) => console.log(err))
-        .then(console.log(favorites))
+        //.then(console.log(favorites))
 })
         ///Placeholder On recipe page click it set timer. Turns to opposite. On showing this component again it'll see timer had changed and rerun whats in getFavs.
     useEffect(()=>{
