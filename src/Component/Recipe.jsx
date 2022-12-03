@@ -1,12 +1,11 @@
-import React, {Component, useState} from 'react'
-import {useLocation, Navigate, useNavigate} from 'react-router-dom'
+import React, {useState} from 'react'
+import {useLocation, Navigate} from 'react-router-dom'
 import '../index.css'
 //This is all old stuff
 
 function Recipe (props){
     //imports information passed from search page
 const state = useLocation();
-let navigate = useNavigate();
 
 const [recipe_id, setRecID] = useState("");
 

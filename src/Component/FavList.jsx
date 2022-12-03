@@ -1,12 +1,11 @@
-import React, {Component, useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {useLocation, Link} from 'react-router-dom';
-import Recipe from './Recipe';
+
 
 function FavList (props){
   const {state} = useLocation();
   const [favorites, setFavs] = useState(null);
   const [timer, setTimer] =useState(true);
-  const [tempFavs, setTempFavs] = useState(null);
 
 
   

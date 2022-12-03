@@ -1,6 +1,6 @@
-import React, {Component, useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {useLocation, Link} from 'react-router-dom';
-import Recipe from './Recipe';
+
 
 
 function Search (props){
@@ -15,9 +15,6 @@ function Search (props){
   const [recipes, setRecipes] = useState(null)
 
   
-  const handleChange = (event) =>{
-    setQuery({[event.target.id]: event.target.value})
-  }
 
   const handleSubmit = useCallback(event =>{
     //stops page reload

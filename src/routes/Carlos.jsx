@@ -1,5 +1,4 @@
-import React, {Component, useState, useReducer, useEffect, useCallback} from 'react'
-import {Navigate, useLocation, useNavigate} from 'react-router-dom'
+import React from 'react'
 import '../App.css'
 
 const  Carlos=() =>{
