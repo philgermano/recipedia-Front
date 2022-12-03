@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState} from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
 
@@ -16,7 +16,7 @@ function Search (props){
 
   
 
-  const handleSubmit = useCallback(event =>{
+  const handleSubmit = (event) =>{
     //stops page reload
     event.preventDefault();
        //assembles search URL
@@ -32,7 +32,7 @@ function Search (props){
             //.then(console.log(recipes))
             //.then(console.log(this.sendBack))
   
-  })
+  }
 
     return (
         <div className='search'>
@@ -70,7 +70,7 @@ function Search (props){
           state={{
               recipe: data
 
-          }}><img src={data.strMealThumb}/></Link>
+          }}><img src={data.strMealThumb} alt={data.strMeal}/></Link>
           
           </li>
         
