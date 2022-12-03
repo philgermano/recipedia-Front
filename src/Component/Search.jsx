@@ -29,7 +29,7 @@ function Search (props){
             .then(response =>{return response.json()})
             .then(json => setRecipes(json),
             (err) => console.log(err))
-            .then(console.log(recipes))
+            //.then(console.log(recipes))
             //.then(console.log(this.sendBack))
   
   })
